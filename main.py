@@ -1,20 +1,46 @@
 # AE, EW, SC, DD Period 7th Build a Game 
 
 import time
+import sys
+import random
+def die():
+    died = [
+    "|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|             You died.             |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|"
+    ]
+    for item in died:
+        print(item)
+    sys.exit()
+inv = ["Shortsword", "Shortbow"]
+def inventory():
+    print("These are the items in your inventory.")
 #EW Beginning dialouge
 print("Welcome to the Adventure of a Lifetime!")
+time.sleep(2)
+print("Anytime you can type, you can type 'Inventory' to open your inventory.")
+time.sleep(2)
 # SC Journey & variables
 name = input("What is your hero's name?\n").strip().title()
 wizard = input("Give me a name for the Wizard, please!\n").strip().title()
 wizitem = input("Give me a noun. Trust\n").strip().lower()
-time.sleep(3)
 print(f"Your name is {name}, and you walk into a tavern hoping to find a quest and become a hero!")
-time.sleep(3)
+time.sleep(2)
 print("A wizard walks up to you, and says, 'Oy kid, what are you doing in such a place.'")
 time.sleep(3)
 print(f"{name}: I am {name}, and I wish to go on an adventure and become a hero!")
 time.sleep(3)
-print(f"{wizard}: Oh I see. Well I am missing something, and I am in desparate for someone to come fetch it for me.")
+print(f"{wizard}: Oh I see. Well I am missing something, and I am in desparate need for someone to come fetch it for me.")
 time.sleep(3)
 print(f"{name}: Oh! Well what is it? Maybe I can go get it for you.")
 time.sleep(3)
@@ -26,38 +52,40 @@ time.sleep(3)
 #Journey:
 print(f"{name} is walking down a path, looking for anything that is could be a clue of how the wizard lost his {wizitem} and to see if you can find a way to get the wizard his {wizitem} back")
 time.sleep(3)
-print(f"After a little bit of walking down the path, you come across a crossroad, which way do you go, Left or right")
-crossroad = input("You are walking and come across a crossroad, do you want t go left or right?")
-left = input("You continue walking down the path and come across a dead end. Do you want to turn back or walk to the dead end?\n")
-if right:
-    input("You walk along the stream until you see a cool crystal. Do you pick up the crystal or leave it alone")
-    if pick_up:
-            print("You pick up the crystal and nothing happens")
-else:
-		print("You leave the crystal alone and walk away.")
-crystal = input("Do you want to put it down or keep it?\n")
-if put it down:
-		print("You put down the crystal back on the ground and continue walking.")
-elif:
-		print(“You put the crystal in your satchel for safe keeping, you continue walking.”)
-else:
-	print(“You turn left and find yourself on another path going towards a forest”)
-	continue = input(“Do you want to continue walking towards the forest or turn back?\n”)
-	if continue:
-		print(“You continue walking towards the forest”)
-	else:
-		print(“You turn back and walk towards the crossroad.”)
+print(f"After a little bit of walking down the path, you come across a crossroad, which way do you go?")
+crossroad = input("You are walking and come across a crossroad, do you want to go left or right?").strip().capitalize()
 
-# Journey pt. 2 AE Crossroad
 
-print("Walking along the path you hear a noise from behind, there are two options climb a tree or start walking faster along the path")
-choice = input("What do you do?\n")
-if choice 
+if crossroad == "Right":
+    input("You turn right and find a stream, you walk along it\n")
+else:
+    input("You continue walking down the path and come across a dead end. Do you want to turn back or walk to the dead end?\n")
+    
+print("You walk along the stream until you see a cool crystal. Do you pick up the crystal or leave it alone")
+
+cool = input("Do you pick up the crystal?\n")
+
+if cool == "Pickup":
+    print("You pick up the crystal and nothing happens")
+else:
+     print("You leave the crystal alone and walk away.")
+
+crystal = input("Do you want to put it down or keep it?\n").strip().capitalize()
+
+if crystal == "Putitdown":
+    print("You put down the crystal back on the ground and continue walking.")
+else:
+    print("You put the crystal in your satchel for safe keeping, you continue walking.")
+    
+resume = input("Do you want to walk towards the forest or turn back?\n").strip().capitalize()
+
+if resume == "Walk":
+	print("You continue walking towards the forest")
+else:
+	die()
 
 
 # DD Monster encounters
-import sys
-import random
 
 goblin = [ # Base goblin
 "/|___|\\",
@@ -140,6 +168,46 @@ def weapon_use(): # We are gonna use a weapon A LOT, so we can do this to make i
         return damage
     time.sleep(2)
 
+def bandit_encounter(): # We are gonna make a function so we can call a bandit fight simply anytime
+    def bandit_turn():
+        time.sleep(2)
+        print("The bandit will attack now.")
+        time.sleep(2)
+        bandit_damage = random.randint(1,6)+2 # Die roll
+        print(f"The bandit dashes at you and swings their scimitar horizontally, dealing {bandit_damage} damage.")
+        return bandit_damage
+    def player_turn():
+        time.sleep(3)
+        print("It is your turn now.")
+        time.sleep(1)
+        damage = weapon_use()
+        for item in bandit_hurt:
+            print(item)
+        return damage
+    time.sleep(2)
+    print("Oh no! A bandit has appeared and is ready to rob you!")
+    time.sleep(1)
+    for item in bandit:
+        print(item)
+        player_hp = 30
+        bandit_hp = 10
+    while True:
+        bandit_damage = bandit_turn()
+        damage = player_turn()
+        if bandit_hp <= damage:
+            time.sleep(1)
+            print("Congratulations, the bandit is slain.")
+            time.sleep(1)
+            for item in bandit_dead:
+                print(item)
+            break
+        elif player_hp <= bandit_damage:
+            die()
+            break
+        elif bandit_hp > damage:
+            bandit_hp -= damage
+        elif player_hp > bandit_damage:
+            player_hp -= bandit_damage
 
 def goblin_encounter(): # We are gonna make a function so we can call a goblin fight simply anytime
     def goblin_turn():
@@ -163,7 +231,7 @@ def goblin_encounter(): # We are gonna make a function so we can call a goblin f
     for item in goblin:
         print(item)
         player_hp = 25
-        goblin_hp = 10
+        goblin_hp = 15
     while True:
         goblin_damage = goblin_turn()
         damage = player_turn()
@@ -175,59 +243,12 @@ def goblin_encounter(): # We are gonna make a function so we can call a goblin f
                 print(item)
             break
         elif player_hp <= goblin_damage:
-            print("You have died.")
+            die()
             break
-            sys.exit()
         elif goblin_hp > damage:
             goblin_hp -= damage
         elif player_hp > goblin_damage:
             player_hp -= goblin_damage
-heart = [
-"/**\\/**\\"
-"\\"
-]
-
-def bandit_encounter(): # We are gonna make a function so we can call a bandit fight simply anytime
-    def bandit_turn():
-        time.sleep(2)
-        print("The bandit will attack now.")
-        time.sleep(2)
-        bandit_damage = random.randint(1,6)+2 # Die roll
-        print(f"The bandit dashes at you and swings their scimitar horizontally, dealing {bandit_damage} damage.")
-        return bandit_damage
-    def player_turn():
-        time.sleep(3)
-        print("It is your turn now.")
-        time.sleep(1)
-        damage = weapon_use()
-        for item in bandit_hurt:
-            print(item)
-        return damage
-    time.sleep(2)
-    print("Oh no! A bandit has appeared and is ready to rob you!")
-    time.sleep(1)
-    for item in bandit:
-        print(item)
-        player_hp = 30
-        bandit_hp = 15
-    while True:
-        bandit_damage = bandit_turn()
-        damage = player_turn()
-        if bandit_hp <= damage:
-            time.sleep(1)
-            print("Congratulations, the bandit is slain.")
-            time.sleep(1)
-            for item in bandit_dead:
-                print(item)
-            break
-        elif player_hp <= bandit_damage:
-            print("You have died.")
-            break
-            sys.exit()
-        elif bandit_hp > damage:
-            bandit_hp -= damage
-        elif player_hp > bandit_damage:
-            player_hp -= bandit_damage
 
 def boss_encounter(): # We are gonna make a function so we can call a boss fight simply anytime
     def boss_turn():
@@ -262,12 +283,53 @@ def boss_encounter(): # We are gonna make a function so we can call a boss fight
             time.sleep(2)
             for item in boss_dead:
                 print(item)
+            reward = "cool"
             break
         elif player_hp <= boss_damage:
-            print("You have died.")
-            break
+            die()
             sys.exit()
+            break
         elif boss_hp > damage:
             boss_hp -= damage
         elif player_hp > boss_damage:
             player_hp -= boss_damage
+    return reward
+    
+# Journey peice AE Crossroad
+
+print("Walking along the path you hear a noise from behind, there are two options climb a tree or start walking faster along the path")
+choice = input("What do you do? Climb or Walk?\n").strip().capitalize()
+if choice == "Climb":
+    print("You begin to climb the tree, reaching the top you see a eagle's nest, would you like to climb higher or go back down?")
+else:
+    print("You begin to walk faster until you start to run, something tackles you") # encounter
+    goblin_encounter
+
+tree_choice = input("Will you choose to go higher or go down?").strip.capitalize()
+if tree_choice == "Gohigher":
+    print("You reach the top of the tree, the view is beautiful, a forest of trees and a setting sun. As your admiring the scene a gigantic eaglle comes and grabs you by the shoulders and carries you off. You scream.")
+    die()
+else:
+    print("You climb back down the tree when you land safely on the path as something tackles your from behind") # encounter
+    goblin_encounter
+
+if boss_encounter() == "cool":
+    print("You look at the item, exilerated yet exhausted. You know it is time to go home.")
+    time.sleep(2)
+    print("The journey back is easier than the one before, and you are able to make it back within a day despite the item you are dragging behind you.")
+    time.sleep(3)
+    print("Once you get out, you burst into the tavern and everyone looks up at you with shock on their faces")
+    time.sleep(3)
+    print(f"{name}: {wizard}!")
+    time.sleep(1)
+    print(f"{wizard}: What? *very clearly annoyed at you*")
+    time.sleep(2)
+    print(f"{name}: I have your {wizitem}! I battled a wizard to do it!")
+    time.sleep(2)
+    print(f"{wizard}: Oh... Thank you. You actually did it.")
+    time.sleep(2)
+    print("The wizard yells to everyone")
+    time.sleep(2)
+    print(f"Look here everyone! This young hero brought back my {wizitem}! Praise him!")
+    time.sleep(2)
+    print("Everyone gives you a halfhearted applause and quickly turns . You beam")
