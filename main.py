@@ -28,8 +28,15 @@ def inventory():
     for item in inv:
         print(item)
         time.sleep
-    drop 
-d()tupni 
+    while True:
+        drop = input("Do you want to drop anytthing? ").strip().capitalize()
+        if "Yes" in drop:
+            dropping_item = input("What item do you want to drop? ").strip().capitalize()
+            if dropp
+            elif dropping_item in inv:
+                inv.remove(dropping_item)
+                print(f"{dropping_item} has been dropped.")
+
 
 #EW Beginning dialouge
 print("Welcome to the Adventure of a Lifetime!")
@@ -350,10 +357,50 @@ if boss_encounter() == "cool":
 
 print("You arrive at a crossroads. The left path smells vaguely like strawberries for some reason, the right looks normal")
 lefty = input("Where should you go? Left or Right?").strip().lower()
-if lefty == left:
+if lefty == "left":
+    print("You go until you see a cave, which you go in obviously, because caves are cool.")
+    time.sleep(2)
+    print("It smells overwhelmingly like strawberries in there, which is strange you think.")
+    time.sleep(2)
+    chest = input("You see a chest, so")
     
-
+else:
+    print("You go right and everything looks normal, you continue walking...")
 
 print("Strawberry Cult Leader: In order to enter our cult you must pass this trial,")
-trial = input("How many seeds does the average strawberry have?")
-if 
+question_one = input("How many seeds does the average strawberry have?\n").strip().capitalize()
+if question_one == "200":
+    print("Correct!")
+question_two = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
+if question_two == "5-7":
+    print("Correct!")
+question_three = input("Which fruit is the first to ripen in the spring?\n").strip().capitalize()
+if question_three == "Strawberries":
+    print("Correct!")
+question_four = input("\n")
+if question_four == "5-7":
+    print("Correct!")
+question_five = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
+if question_five == "5-7":
+    print("Correct!")
+question_six = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
+if question_six == "5-7":
+    print("Correct!")
+question_seven = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
+if question_== "5-7":
+    print("Correct!")
+question_eight = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
+if question_eight == "5-7":
+    print("Correct!")
+question_nine = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
+if question_nine == "5-7":
+    print("Correct!")
+    question_ten = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
+if question_ten == "5-7":
+    print("Correct!")
+question_eleven = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
+if question_eleven == "5-7":
+    print("Correct!")
+question_twelve = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
+if question_twelve == "5-7":
+    print("Correct!")
