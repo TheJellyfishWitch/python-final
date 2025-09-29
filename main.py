@@ -32,7 +32,7 @@ def inventory():
         drop = input("Do you want to drop anytthing? ").strip().capitalize()
         if "Yes" in drop:
             dropping_item = input("What item do you want to drop? ").strip().capitalize()
-            if dropp
+            if dropping_item:
             elif dropping_item in inv:
                 inv.remove(dropping_item)
                 print(f"{dropping_item} has been dropped.")
@@ -387,16 +387,13 @@ question_six = input("How many petals does the average strawberry flower have?\n
 if question_six == "5-7":
     print("Correct!")
 question_seven = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
-if question_== "5-7":
+if question_seven == "5-7":
     print("Correct!")
 question_eight = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
 if question_eight == "5-7":
     print("Correct!")
 question_nine = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
 if question_nine == "5-7":
-    print("Correct!")
-    question_ten = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
-if question_ten == "5-7":
     print("Correct!")
 question_eleven = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
 if question_eleven == "5-7":
