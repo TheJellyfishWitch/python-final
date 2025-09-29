@@ -3,7 +3,7 @@
 import time
 import sys
 import random
-def die():
+def die(): #Dan made this
     died = [
     "|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|",
     "|                                   |",
@@ -22,9 +22,15 @@ def die():
     for item in died:
         print(item)
     sys.exit()
-inv = ["Shortsword", "Shortbow"]
+inv = ["Shortsword", "Shortbow"] #Dan made this
 def inventory():
     print("These are the items in your inventory.")
+    for item in inv:
+        print(item)
+        time.sleep
+    drop 
+d()tupni 
+
 #EW Beginning dialouge
 print("Welcome to the Adventure of a Lifetime!")
 time.sleep(2)
@@ -84,8 +90,8 @@ if resume == "Walk":
 else:
 	die()
 
-strawberry_hat_art = [
-    
+strawberry_hat_art = [ #Dan made this
+
 ]
 
 # DD Monster encounters
@@ -147,7 +153,7 @@ boss_dead = [ # Dead boss
 "  #### ",
 "   ##  "
 ]
-def weapon_use(): # We are gonna use a weapon A LOT, so we can do this to make it easy on future me :D
+def weapon_use(): # We are gonna use a weapon A LOT, so we can do this to make it easy on future me :D #Dan made this
     while True:
         weapon_choosing = input("What weapon would you like to use? You have a shortsword and shortbow in your inventory. ").strip().capitalize()
         time.sleep(1)
@@ -171,7 +177,7 @@ def weapon_use(): # We are gonna use a weapon A LOT, so we can do this to make i
         return damage
     time.sleep(2)
 
-def bandit_encounter(): # We are gonna make a function so we can call a bandit fight simply anytime
+def bandit_encounter(): # We are gonna make a function so we can call a bandit fight simply anytime #Dan made this
     def bandit_turn():
         time.sleep(2)
         print("The bandit will attack now.")
@@ -212,7 +218,7 @@ def bandit_encounter(): # We are gonna make a function so we can call a bandit f
         elif player_hp > bandit_damage:
             player_hp -= bandit_damage
 
-def goblin_encounter(): # We are gonna make a function so we can call a goblin fight simply anytime
+def goblin_encounter(): # We are gonna make a function so we can call a goblin fight simply anytime #Dan made this
     def goblin_turn():
         time.sleep(2)
         print("The goblin will attack now.")
@@ -253,7 +259,7 @@ def goblin_encounter(): # We are gonna make a function so we can call a goblin f
         elif player_hp > goblin_damage:
             player_hp -= goblin_damage
 
-def boss_encounter(): # We are gonna make a function so we can call a boss fight simply anytime
+def boss_encounter(): # We are gonna make a function so we can call a boss fight simply anytime #Dan made this
     def boss_turn():
         time.sleep(2)
         print("The boss will attack now.")
@@ -342,10 +348,12 @@ if boss_encounter() == "cool":
 
 
 
-print("You arrive at a crossroads.")
-print("Where should you go? Le")
+print("You arrive at a crossroads. The left path smells vaguely like strawberries for some reason, the right looks normal")
+lefty = input("Where should you go? Left or Right?").strip().lower()
+if lefty == left:
+    
 
 
-
-
-strawberry_hat = 
+print("Strawberry Cult Leader: In order to enter our cult you must pass this trial,")
+trial = input("How many seeds does the average strawberry have?")
+if 
