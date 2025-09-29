@@ -27,22 +27,28 @@ def inventory():
     print("These are the items in your inventory.")
     for item in inv:
         print(item)
-        time.sleep
+        time.sleep(1)
     while True:
         drop = input("Do you want to drop anything? ").strip().capitalize()
         if "Yes" in drop:
+            time.sleep(1)
             dropping_item = input("What item do you want to drop? ").strip().capitalize()
+            time.sleep(2)
             if dropping_item == "Sword" or dropping_item == "Shortsword":
                 print("You cannot drop your sword.")
                 break
             elif dropping_item == "Bow" or dropping_item == "Shortbow":
                 print("You cannot drop your bow")
                 break
-            try:
-                inv.remove(dropping_item)
+            else:
+                try:
+                    inv.remove(dropping_item)
                 except ValueError:
-                print(f"{dropping_item} has been dropped.")
-                break
+                    print("That is not in your inventory")
+                    break
+                else:
+                    print(f"{dropping_item} has been dropped.")
+                    break
         else:
             break
 
@@ -363,9 +369,7 @@ if boss_encounter() == "cool":
     time.sleep(2)
     print("The end!")
 
-
-
-
+# EW Strawberry Cult Encounter
 print("You arrive at a crossroads. The left path smells vaguely like strawberries for some reason, the right looks normal")
 lefty = input("Where should you go? Left or Right?").strip().lower()
 if lefty == "left":
@@ -377,14 +381,19 @@ if lefty == "left":
     time.sleep(2)
     if chest == "open it":
         print("You open it and see the most incredible looking strawberries you have ever seen.")
+        time.sleep(2)
         print("WHO ARE WHO????")
+        time.sleep(1)
         print("You spin around and choke on the way overwhelming strawberries. There are hundred of people who have suddenly appeared. They are wearing cloaks that are bloodred with black seeds, and their hoods look like strawberry tops.")
+        time.sleep(3)
     else:
-        print()
+        print("You get the heebie jeebies so you turn and see many people. They aim a strawberry wand at you and you go KABLAM.")
+        die()
     
 else:
     print("You go right and everything looks normal, you continue walking...")
 
+# AE Questions
 print("Strawberry Cult Leader: In order to enter our cult you must pass this trial,")
 question_one = input("How many seeds does the average strawberry have?\n").strip().capitalize()
 if question_one == "200":
@@ -434,3 +443,6 @@ if question_eight == "55-78":
 else:
     die()
     print("You made the Strawberry Cultists mad.")
+
+print("Strawberry Cult Leader: Good job! You passed all of our questions and now an official cult member!")
+print("Another member of the Strawberry Cult walks up to you holding a strawberry cloke")
