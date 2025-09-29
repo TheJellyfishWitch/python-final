@@ -29,13 +29,22 @@ def inventory():
         print(item)
         time.sleep
     while True:
-        drop = input("Do you want to drop anytthing? ").strip().capitalize()
+        drop = input("Do you want to drop anything? ").strip().capitalize()
         if "Yes" in drop:
             dropping_item = input("What item do you want to drop? ").strip().capitalize()
-            if dropping_item:
-            elif dropping_item in inv:
+            if dropping_item == "Sword" or dropping_item == "Shortsword":
+                print("You cannot drop your sword.")
+                break
+            elif dropping_item == "Bow" or dropping_item == "Shortbow":
+                print("You cannot drop your bow")
+                break
+            try:
                 inv.remove(dropping_item)
+                except ValueError:
                 print(f"{dropping_item} has been dropped.")
+                break
+        else:
+            break
 
 
 #EW Beginning dialouge
@@ -68,7 +77,9 @@ time.sleep(3)
 print(f"After a little bit of walking down the path, you come across a crossroad, which way do you go?")
 crossroad = input("You are walking and come across a crossroad, do you want to go left or right?\n").strip().capitalize()
 
-if crossroad == "Right":
+if crossroad == "Inventory":
+    inventory()
+elif crossroad == "Right":
     print("You turn right and find a stream, you walk along it\n")
 else:
     dead_end = input("You continue walking down the path and come across a dead end. Do you want to turn back or walk to the dead end?\n").strip().capitalize()
@@ -362,7 +373,14 @@ if lefty == "left":
     time.sleep(2)
     print("It smells overwhelmingly like strawberries in there, which is strange you think.")
     time.sleep(2)
-    chest = input("You see a chest, so")
+    chest = input("You see a chest, do you open it or close it?").strip().lower()
+    time.sleep(2)
+    if chest == "open it":
+        print("You open it and see the most incredible looking strawberries you have ever seen.")
+        print("WHO ARE WHO????")
+        print("You spin around and choke on the way overwhelming strawberries. There are hundred of people who have suddenly appeared. They are wearing cloaks that are bloodred with black seeds, and their hoods look like strawberry tops.")
+    else:
+        print()
     
 else:
     print("You go right and everything looks normal, you continue walking...")
@@ -371,33 +389,48 @@ print("Strawberry Cult Leader: In order to enter our cult you must pass this tri
 question_one = input("How many seeds does the average strawberry have?\n").strip().capitalize()
 if question_one == "200":
     print("Correct!")
+else:
+    die()
+    print("You made the Strawberry Cultists mad.")
 question_two = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
 if question_two == "5-7":
     print("Correct!")
+else:
+    die()
+    print("You made the Strawberry Cultists mad.")
 question_three = input("Which fruit is the first to ripen in the spring?\n").strip().capitalize()
 if question_three == "Strawberries":
     print("Correct!")
-question_four = input("\n")
-if question_four == "5-7":
+else:
+    die()
+    print("You made the Strawberry Cultists mad.")
+question_four = input("How many pounds of frest strawberries do Americans eat?\n")
+if question_four == "3.4":
     print("Correct!")
-question_five = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
-if question_five == "5-7":
+else:
+    die()
+    print("You made the Strawberry Cultists mad.")
+question_five = input("One acre of land can grow how many strawberries?\n").strip().capitalize()
+if question_five == "50,000":
     print("Correct!")
-question_six = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
-if question_six == "5-7":
+else:
+    die()
+    print("You made the Strawberry Cultists mad.")
+question_six = input("True or False: Ancient Romans used strawberries to treat everything from depression to fever and sore throats\n").strip().capitalize()
+if question_six == "True":
     print("Correct!")
-question_seven = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
-if question_seven == "5-7":
+else:
+    die()
+    print("You made the Strawberry Cultists mad.")
+question_seven = input("True or False: Every strawberry is hand-picked about every three days\n").strip().capitalize()
+if question_seven == "True":
     print("Correct!")
-question_eight = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
-if question_eight == "5-7":
+else:
+    die()
+    print("You made the Strawberry Cultists mad.")
+question_eight = input("What temperature is perfect for strawberries?\n").strip().capitalize()
+if question_eight == "55-78":
     print("Correct!")
-question_nine = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
-if question_nine == "5-7":
-    print("Correct!")
-question_eleven = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
-if question_eleven == "5-7":
-    print("Correct!")
-question_twelve = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
-if question_twelve == "5-7":
-    print("Correct!")
+else:
+    die()
+    print("You made the Strawberry Cultists mad.")
