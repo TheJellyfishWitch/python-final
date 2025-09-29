@@ -386,6 +386,7 @@ if lefty == "left":
         time.sleep(1)
         print("You spin around and choke on the way overwhelming strawberries. There are hundred of people who have suddenly appeared. They are wearing cloaks that are bloodred with black seeds, and their hoods look like strawberry tops.")
         time.sleep(3)
+        print("They look quite threatening. You pee your pants a little.")
     else:
         print("You get the heebie jeebies so you turn and see many people. They aim a strawberry wand at you and you go KABLAM.")
         die()
@@ -445,4 +446,5 @@ else:
     print("You made the Strawberry Cultists mad.")
 
 print("Strawberry Cult Leader: Good job! You passed all of our questions and now an official cult member!")
-print("Another member of the Strawberry Cult walks up to you holding a strawberry cloke")
+print("Another member of the Strawberry Cult walks up to you holding a strawberry cloke reverently")
+accept = input("Do you accept\n")
