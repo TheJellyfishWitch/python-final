@@ -53,17 +53,17 @@ time.sleep(3)
 print(f"{name} is walking down a path, looking for anything that is could be a clue of how the wizard lost his {wizitem} and to see if you can find a way to get the wizard his {wizitem} back")
 time.sleep(3)
 print(f"After a little bit of walking down the path, you come across a crossroad, which way do you go?")
-crossroad = input("You are walking and come across a crossroad, do you want to go left or right?").strip().capitalize()
-
+crossroad = input("You are walking and come across a crossroad, do you want to go left or right?\n").strip().capitalize()
 
 if crossroad == "Right":
-    input("You turn right and find a stream, you walk along it\n")
+    print("You turn right and find a stream, you walk along it\n")
 else:
-    input("You continue walking down the path and come across a dead end. Do you want to turn back or walk to the dead end?\n")
-    
-print("You walk along the stream until you see a cool crystal. Do you pick up the crystal or leave it alone")
+    dead_end = input("You continue walking down the path and come across a dead end. Do you want to turn back or walk to the dead end?\n").strip().capitalize()
 
-cool = input("Do you pick up the crystal?\n")
+if dead_end == "Walk":
+    print("You walk along the stream until you see a cool crystal. Do you pick up the crystal or leave it alone")
+
+    cool = input("Do you pick up the crystal?\n")
 
 if cool == "Pickup":
     print("You pick up the crystal and nothing happens")
@@ -84,6 +84,9 @@ if resume == "Walk":
 else:
 	die()
 
+strawberry_hat_art = [
+    
+]
 
 # DD Monster encounters
 
@@ -305,7 +308,7 @@ else:
     print("You begin to walk faster until you start to run, something tackles you") # encounter
     goblin_encounter
 
-tree_choice = input("Will you choose to go higher or go down?").strip.capitalize()
+tree_choice = input("Will you choose to go higher or go down?").strip().capitalize()
 if tree_choice == "Gohigher":
     print("You reach the top of the tree, the view is beautiful, a forest of trees and a setting sun. As your admiring the scene a gigantic eaglle comes and grabs you by the shoulders and carries you off. You scream.")
     die()
@@ -332,4 +335,17 @@ if boss_encounter() == "cool":
     time.sleep(2)
     print(f"Look here everyone! This young hero brought back my {wizitem}! Praise him!")
     time.sleep(2)
-    print("Everyone gives you a halfhearted applause and quickly turns . You beam")
+    print("Everyone gives you a halfhearted applause and quickly turns around to what they were doing. You beam and jollily skip out of the room.")
+    time.sleep(2)
+    print("The end!")
+
+
+
+
+print("You arrive at a crossroads.")
+print("Where should you go? Le")
+
+
+
+
+strawberry_hat = 
