@@ -81,34 +81,24 @@ print(f"{name} is walking down a path, looking for anything that is could be a c
 time.sleep(3)
 crossroad = input("You are walking and come across a crossroad, do you want to go left or right?\n").strip().capitalize()
 
-if "inventory" in crossroad:
-    inventory()
-elif "right" in crossroad:
+if "Right" in crossroad:
     print("You turn right and find a stream, you walk along it")
-else:
-    dead_end = input("You continue walking down the path and come across a dead end. Do you want to turn back or walk to the dead end?\n").strip().capitalize()
-    if "walk" in dead_end:
-        print("You walk along the dead end until you see a cool crystal. Do you pick up the crystal or leave it alone")
-        bool = input("Do you pick up the crystal?\n").capitalize().strip()
-    elif "inventory" in dead_end:
-        inventory()
-    if "pickup" in bool:
-        print("You pick up the crystal and nothing happens")
-        inv.append("Crystal")
-    elif "inventory" in bool:
-        inventory()
-    else:
-         print("You leave the crystal alone and walk away.")
+elif "inventory" in crossroad:
+    inventory()
+elif "Left" in crossroad:
+    print("You turn left and continue walking down the path and come to a dead end")
+    print("You walk along the dead end until you see a cool crystal. You decide to pick it up")
+    print("When you pick up the crystal and nothing happens")
 
     crystal = input("Do you want to put it down or keep it?\n").strip().capitalize()
 
     if "down" in crystal:
         print("You put down the crystal back on the ground and continue walking.")
-        inv.remove("Crystal")
     elif "inventory" in crystal:
         inventory()
     else:
         print("You put the crystal in your satchel for safe keeping, you continue walking.")
+        inv.append("Crystal")
 
 print("You reach a part along the stream where a forest appears")
 resume = input("Do you want to walk towards the forest or turn back?\n").strip().lower()
@@ -174,23 +164,6 @@ if "walk" in resume:
                     time.sleep(2)
                     die()
                 time.sleep(1)
-                question_six = input("True or False: Ancient Romans used strawberries to treat everything from depression to fever and sore throats\n").strip().capitalize()
-                if "true" in question_six:
-                    print("Correct!")
-                else:
-                    print("You made the Strawberry Cultists mad.")
-                    time.sleep(2)
-                    die()
-                time.sleep(1)
-                question_seven = input("True or False: Every strawberry is hand-picked about every three days\n").strip().capitalize()
-                if "true" in question_seven:
-                    print("Correct!")
-                    time.sleep(1)
-                else:
-                    print("You made the Strawberry Cultists mad.")
-                    time.sleep(2)
-                    die()
-                time.sleep(1)
                 question_eight = input("What temperature is perfect for strawberries?\n").strip().capitalize()
                 if "55-78" in question_eight:
                     print("Correct!")
@@ -207,7 +180,7 @@ if "walk" in resume:
             print("Another member of the Strawberry Cult walks up to you holding a strawberry cloak reverently")
             time.sleep(2)
             accept = input("Do you accept?\n").strip().capitalize()
-            if "yes" in accept:
+            if "Yes" in accept:
                 print("The member hands you the cloak you put it on, you gain 10 hearts")
                 time.sleep(2)
             else:
@@ -222,7 +195,7 @@ if "walk" in resume:
             time.sleep(3)
             die()
 else:
-    print("You go to the right and continue walking down the path")
+    print("After walking along the stream for a while you come to a path")
 
 # DD Monster encounters
 goblin = [ # Base goblin
