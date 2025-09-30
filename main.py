@@ -68,7 +68,7 @@ time.sleep(3)
 print(f"{name}: I am {name}, and I wish to go on an adventure and become a hero!")
 time.sleep(3)
 print(f"{wizard}: Oh I see. Well I am missing something, and I am in desparate need for someone to come fetch it for me.")
-time.sleep(3)
+time.sleep(2)
 print(f"{name}: Oh! Well what is it? Maybe I can go get it for you.")
 time.sleep(3)
 print(f"{wizard}: You'll do it? Well alright! It is a {wizitem}. Go and get it, come back, and you'll be the biggest hero of all!")
@@ -87,21 +87,18 @@ elif crossroad == "Right":
     print("You turn right and find a stream, you walk along it\n")
 else:
     dead_end = input("You continue walking down the path and come across a dead end. Do you want to turn back or walk to the dead end?\n").strip().capitalize()
-
-if dead_end == "Walk":
-    print("You walk along the dead end until you see a cool crystal. Do you pick up the crystal or leave it alone")
-
-    cool = input("Do you pick up the crystal?\n")
-elif dead_end == "Inventory":
-    inventory()
-
-if cool == "Pickup":
-    print("You pick up the crystal and nothing happens")
-    inv.append("Crystal")
-elif cool == "Inventory":
-    inventory()
-else:
-    print("You leave the crystal alone and walk away.")
+    if dead_end == "Walk":
+        print("You walk along the dead end until you see a cool crystal. Do you pick up the crystal or leave it alone")
+        cool = input("Do you pick up the crystal?\n")
+    elif dead_end == "Inventory":
+        inventory()
+    if cool == "Pickup":
+        print("You pick up the crystal and nothing happens")
+        inv.append("Crystal")
+    elif cool == "Inventory":
+        inventory()
+    else:
+         print("You leave the crystal alone and walk away.")
 
 crystal = input("Do you want to put it down or keep it?\n").strip().capitalize()
 
