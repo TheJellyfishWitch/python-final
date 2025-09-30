@@ -52,7 +52,7 @@ def inventory():
         else:
             break
 
-#EW Beginning dialouge
+#EW Beginning dialogue
 print("Welcome to the Adventure of a Lifetime!")
 time.sleep(2)
 print("Anytime you can type, you can type 'Inventory' to open your inventory.")
@@ -61,7 +61,7 @@ time.sleep(2)
 name = input("What is your hero's name?\n").strip().title()
 wizard = input("Give me a name for the Wizard, please!\n").strip().title()
 wizitem = input("Give me a noun. Trust\n").strip().lower()
-print(f"Your name is {name}, and you walk into a tavern hoping to find a quest and become a hero!")
+print(f"Your name is {name}, and you walk into a tavern hoping to find a quest and become a hero!") #EW dialogue
 time.sleep(2)
 print("A wizard walks up to you, and says, 'Oy kid, what are you doing in such a place.'")
 time.sleep(3)
@@ -100,111 +100,109 @@ else:
     else:
          print("You leave the crystal alone and walk away.")
 
-crystal = input("Do you want to put it down or keep it?\n").strip().capitalize()
+    crystal = input("Do you want to put it down or keep it?\n").strip().capitalize()
 
-if crystal == "Putitdown":
-    print("You put down the crystal back on the ground and continue walking.")
-    inv.remove("Crystal")
-elif crystal == "Inventory":
-    inventory()
-else:
-    print("You put the crystal in your satchel for safe keeping, you continue walking.")
+    if crystal == "Putitdown":
+        print("You put down the crystal back on the ground and continue walking.")
+        inv.remove("Crystal")
+    elif crystal == "Inventory":
+        inventory()
+    else:
+        print("You put the crystal in your satchel for safe keeping, you continue walking.")
 
+print("You reach a part along the stream where a forest appears")
 resume = input("Do you want to walk towards the forest or turn back?\n").strip().capitalize()
 
 if resume == "Walk":
-    print("You continue walking towards the forest")
-    time.sleep(2) # EW strawberry encounter
-    print("You come up on a crossroad. Left smells vaguely like strawberries and right looks perfectly normal.")
-    time.sleep(2)
-    lefty = input("Do you go left or right?").strip().lower()
-    if lefty == "left":
-        print("You continue going until you see a cave, which you go in, because caves are cool.")
+        print("You continue walking towards the forest")
+        time.sleep(2) # EW strawberry encounter
+        print("You come up on a crossroad. Left smells vaguely like strawberries and right looks perfectly normal.")
         time.sleep(2)
-        print("It smells EXTREMElY strawberry like in here. Weird.")
-        time.sleep(2)
-        ches = str(input("You see a chest, do you open it or leave it?"))
-        time.sleep(1)
-        if ches == "open it":
-            print("When you open the chest, you see the most incredible strawberries you have ever seen.")
+        lefty = input("Do you go left or right?").strip().lower()
+        if lefty == "left":
+            print("You continue going until you see a cave, which you go in, because caves are cool.")
+            time.sleep(2)
+            print("It smells EXTREMElY strawberry like in here. Weird.")
+            time.sleep(2)
+            ches = str(input("You see a chest, do you open it or leave it?"))
             time.sleep(1)
-            print("You start choking on the scent of strawberries, for some reason the scent has become super strong. Then you hear, WHO ARE YOU!!!")
-            time.sleep(2)
-            print("You turn and see hundreds of people in bloodred cloaks with seeds covering it. Their hood looks like green strawberry leaves.")
-            time.sleep(2)
+            if ches == "open it":
+                print("When you open the chest, you see the most incredible strawberries you have ever seen.")
+                time.sleep(1)
+                print("You start choking on the scent of strawberries, for some reason the scent has become super strong. Then you hear, WHO ARE YOU!!!")
+                time.sleep(2)
+                print("You turn and see hundreds of people in bloodred cloaks with seeds covering it. Their hood looks like green strawberry leaves.")
+                time.sleep(2)
 # AE Questions
-            print("Strawberry Cult Leader: In order to enter our cult you must pass this trial,")
-            question_one = input("How many seeds does the average strawberry have?\n").strip().capitalize()
-            if question_one == "200":
-                print("Correct!")
+                print("Strawberry Cult Leader: In order to enter our cult you must pass this trial,")
+                question_one = input("How many seeds does the average strawberry have?\n").strip().capitalize()
+                if question_one == "200":
+                    print("Correct!")
+                else:
+                    print("You made the Cultists mad")
+                    die()
+                question_two = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
+                if question_two == "5-7":
+                    print("Correct!")
+                else:
+                    print("You made the Strawberry Cultists mad.")
+                    die()
+                question_three = input("Which fruit is the first to ripen in the spring?\n").strip().capitalize()
+                if question_three == "Strawberries":
+                    print("Correct!")
+                else:
+                    print("You made the Strawberry Cultists mad.")
+                    die()
+                question_four = input("How many pounds of frest strawberries do Americans eat?\n")
+                if question_four == "3.4":
+                    print("Correct!")
+                else:
+                    print("You made the Strawberry Cultists mad.")
+                    die()
+                question_five = input("One acre of land can grow how many strawberries?\n").strip().capitalize()
+                if question_five == "50,000":
+                    print("Correct!")
+                else:
+                    print("You made the Strawberry Cultists mad.")
+                    die()
+                question_six = input("True or False: Ancient Romans used strawberries to treat everything from depression to fever and sore throats\n").strip().capitalize()
+                if question_six == "True":
+                    print("Correct!")
+                else:
+                    print("You made the Strawberry Cultists mad.")
+                    die()
+                question_seven = input("True or False: Every strawberry is hand-picked about every three days\n").strip().capitalize()
+                if question_seven == "True":
+                    print("Correct!")
+                else:
+                    print("You made the Strawberry Cultists mad.")
+                    die()
+                question_eight = input("What temperature is perfect for strawberries?\n").strip().capitalize()
+                if question_eight == "55-78":
+                    print("Correct!")
+                else: 
+                    print("You made the Strawberry Cultists mad.")
+                    die()
+            elif resume == "Inventory":
+                inventory()
             else:
-                print("You made the Cultists mad")
                 die()
-            question_two = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
-            if question_two == "5-7":
-                print("Correct!")
+            print("Strawberry Cult Leader: Good job! You passed all of our questions and now an official cult member!")
+            print("Another member of the Strawberry Cult walks up to you holding a strawberry cloak reverently")
+            accept = input("Do you accept?\n").strip().capitalize()
+            if accept == "Yes":
+                print("The member hands you the cloak you put it on, you gain 10 hearts")
             else:
-                print("You made the Strawberry Cultists mad.")
+                print("Strawberry Cult Leader: You don't accept the cloak. Well then, by the power of the strawberry gods we give you this!...")
+                time.sleep(1)
+                print("Pink lightning rains from the sky, all you see is the cult leader standing before you")
                 die()
-            question_three = input("Which fruit is the first to ripen in the spring?\n").strip().capitalize()
-            if question_three == "Strawberries":
-                print("Correct!")
-            else:
-                print("You made the Strawberry Cultists mad.")
-                die()
-            question_four = input("How many pounds of frest strawberries do Americans eat?\n")
-            if question_four == "3.4":
-                print("Correct!")
-            else:
-                print("You made the Strawberry Cultists mad.")
-                die()
-            question_five = input("One acre of land can grow how many strawberries?\n").strip().capitalize()
-            if question_five == "50,000":
-                print("Correct!")
-            else:
-                print("You made the Strawberry Cultists mad.")
-                die()
-            question_six = input("True or False: Ancient Romans used strawberries to treat everything from depression to fever and sore throats\n").strip().capitalize()
-            if question_six == "True":
-                print("Correct!")
-            else:
-                print("You made the Strawberry Cultists mad.")
-                die()
-            question_seven = input("True or False: Every strawberry is hand-picked about every three days\n").strip().capitalize()
-            if question_seven == "True":
-                print("Correct!")
-            else:
-                print("You made the Strawberry Cultists mad.")
-                die()
-            question_eight = input("What temperature is perfect for strawberries?\n").strip().capitalize()
-            if question_eight == "55-78":
-                print("Correct!")
-            else: 
-                print("You made the Strawberry Cultists mad.")
-                die()
-        elif resume == "Inventory":
-            inventory()
-        else:
-            die()
 
-        print("Strawberry Cult Leader: Good job! You passed all of our questions and now an official cult member!")
-        print("Another member of the Strawberry Cult walks up to you holding a strawberry cloke reverently")
-        accept = input("Do you accept?\n").strip().capitalize()
-        if accept == "Yes":
-            print("The member hands you the cloak you put it on, you gain 10 hearts")
         else:
-            print("Strawberry Cult Leader: You don't accept the cloak. Well then, by the power of the strawberry gods we give you this!...")
-            time.sleep(1)
-            print("Pink lightning rains from the sky, all you see is the cult leader standing before you")
+            print("You get the heebie jeebies so you turn back and see a whole bunch of poeple in cloaks and their hats look like a strawberry tops. They point their strawberry wants at you and you go KABOOM!")
             die()
-
-    else:
-        print("You get the heebie jeebies so you turn back and see a whole bunch of poeple in cloaks and their hats look like a strawberry tops. They point their strawberry wants at you and you go KABOOM!")
-        die()
 else:
     print("You go to the right and continue walking down the path")
-
-
 
 # DD Monster encounters
 goblin = [ # Base goblin
@@ -370,7 +368,8 @@ if choice == "Climb":
     print("You begin to climb the tree, reaching the top you see a eagle's nest, would you like to climb higher or go back down?")
     tree_choice = input("Will you choose to go higher or go down?").strip().capitalize()
     if tree_choice == "Gohigher":
-        print("You reach the top of the tree, the view is beautiful, a forest of trees and a setting sun. As your admiring the scene a gigantic eagle comes and grabs you by the shoulders and carries you off. You scream.")
+        print("You reach the top of the tree, the view is beautiful, a forest of trees and a setting sun.")
+        print("As your admiring the scene a gigantic eagle comes and grabs you by the shoulders and carries you off. You scream.")
         die()
 else:
     print("You climb back down the tree when you land safely on the path as something tackles you from behind") # encounter
