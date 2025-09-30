@@ -76,49 +76,48 @@ time.sleep(3)
 print("The old wizard roughly pushes you out the door. You think he just wants you to leave the tavern, but that doesn't matter. You will go find the item and become a hero!")
 time.sleep(3)
 
-    #Journey:
-    print(f"{name} is walking down a path, looking for anything that is could be a clue of how the wizard lost his {wizitem} and to see if you can find a way to get the wizard his {wizitem} back")
-    time.sleep(3)
-    print(f"After a little bit of walking down the path, you come across a crossroad, which way do you go?")
-    crossroad = input("You are walking and come across a crossroad, do you want to go left or right?\n").strip().capitalize()
+#Journey:
+print(f"{name} is walking down a path, looking for anything that is could be a clue of how the wizard lost his {wizitem} and to see if you can find a way to get the wizard his {wizitem} back")
+time.sleep(3)
+crossroad = input("You are walking and come across a crossroad, do you want to go left or right?\n").strip().capitalize()
 
-    if crossroad == "Inventory":
-        inventory()
-    elif crossroad == "Right":
-        print("You turn right and find a stream, you walk along it\n")
-    else:
-        dead_end = input("You continue walking down the path and come across a dead end. Do you want to turn back or walk to the dead end?\n").strip().capitalize()
+if crossroad == "Inventory":
+    inventory()
+elif crossroad == "Right":
+    print("You turn right and find a stream, you walk along it\n")
+else:
+    dead_end = input("You continue walking down the path and come across a dead end. Do you want to turn back or walk to the dead end?\n").strip().capitalize()
 
-    if dead_end == "Walk":
-        print("You walk along the stream until you see a cool crystal. Do you pick up the crystal or leave it alone")
+if dead_end == "Walk":
+    print("You walk along the dead end until you see a cool crystal. Do you pick up the crystal or leave it alone")
 
     cool = input("Do you pick up the crystal?\n")
-    elif dead_end == "Inventory":
-        inventory()
+elif dead_end == "Inventory":
+    inventory()
 
-    if cool == "Pickup":
-        print("You pick up the crystal and nothing happens")
+if cool == "Pickup":
+    print("You pick up the crystal and nothing happens")
     inv.append("Crystal")
-    elif cool == "Inventory":
-        inventory()
-    else:
-        print("You leave the crystal alone and walk away.")
+elif cool == "Inventory":
+    inventory()
+else:
+    print("You leave the crystal alone and walk away.")
 
-    crystal = input("Do you want to put it down or keep it?\n").strip().capitalize()
+crystal = input("Do you want to put it down or keep it?\n").strip().capitalize()
 
-    if crystal == "Putitdown":
-        print("You put down the crystal back on the ground and continue walking.")
-        inv.remove("Crystal")
-    elif crystal == "Inventory":
-        inventory()
-    else:
-        print("You put the crystal in your satchel for safe keeping, you continue walking.")
+if crystal == "Putitdown":
+    print("You put down the crystal back on the ground and continue walking.")
+    inv.remove("Crystal")
+elif crystal == "Inventory":
+    inventory()
+else:
+    print("You put the crystal in your satchel for safe keeping, you continue walking.")
 
-    resume = input("Do you want to walk towards the forest or turn back?\n").strip().capitalize()
+resume = input("Do you want to walk towards the forest or turn back?\n").strip().capitalize()
 
 if resume == "Walk":
     print("You continue walking towards the forest")
-    time.sleep(2)
+    time.sleep(2) # EW strawberry encounter
     print("You come up on a crossroad. Left smells vaguely like strawberries and right looks perfectly normal.")
     time.sleep(2)
     lefty = input("Do you go left or right?").strip().lower()
@@ -127,78 +126,90 @@ if resume == "Walk":
         time.sleep(2)
         print("It smells EXTREMElY strawberry like in here. Weird.")
         time.sleep(2)
-        chest == input("You see a chest, do")
-    else:
-        print("You go to the right and continue walking down the path")
-    elif resume == "Inventory":
-        inventory()
+        ches = str(input("You see a chest, do you open it or leave it?"))
+        time.sleep(1)
+        if ches == "open it":
+            print("When you open the chest, you see the most incredible strawberries you have ever seen.")
+            time.sleep(1)
+            print("You start choking on the scent of strawberries, for some reason the scent has become super strong. Then you hear, WHO ARE YOU!!!")
+            time.sleep(2)
+            print("You turn and see hundreds of people in bloodred cloaks with seeds covering it. Their hood looks like green strawberry leaves.")
+            time.sleep(2)
+# AE Questions
+            print("Strawberry Cult Leader: In order to enter our cult you must pass this trial,")
+            question_one = input("How many seeds does the average strawberry have?\n").strip().capitalize()
+            if question_one == "200":
+                print("Correct!")
+            else:
+                print("You made the Cultists mad")
+                die()
+            question_two = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
+            if question_two == "5-7":
+                print("Correct!")
+            else:
+                print("You made the Strawberry Cultists mad.")
+                die()
+            question_three = input("Which fruit is the first to ripen in the spring?\n").strip().capitalize()
+            if question_three == "Strawberries":
+                print("Correct!")
+            else:
+                print("You made the Strawberry Cultists mad.")
+                die()
+            question_four = input("How many pounds of frest strawberries do Americans eat?\n")
+            if question_four == "3.4":
+                print("Correct!")
+            else:
+                print("You made the Strawberry Cultists mad.")
+                die()
+            question_five = input("One acre of land can grow how many strawberries?\n").strip().capitalize()
+            if question_five == "50,000":
+                print("Correct!")
+            else:
+                print("You made the Strawberry Cultists mad.")
+                die()
+            question_six = input("True or False: Ancient Romans used strawberries to treat everything from depression to fever and sore throats\n").strip().capitalize()
+            if question_six == "True":
+                print("Correct!")
+            else:
+                print("You made the Strawberry Cultists mad.")
+                die()
+            question_seven = input("True or False: Every strawberry is hand-picked about every three days\n").strip().capitalize()
+            if question_seven == "True":
+                print("Correct!")
+            else:
+                print("You made the Strawberry Cultists mad.")
+                die()
+            question_eight = input("What temperature is perfect for strawberries?\n").strip().capitalize()
+            if question_eight == "55-78":
+                print("Correct!")
+            else: 
+                print("You made the Strawberry Cultists mad.")
+                die()
+        elif resume == "Inventory":
+            inventory()
         else:
-        die()
+            die()
 
-    # AE Questions
-    print("Strawberry Cult Leader: In order to enter our cult you must pass this trial,")
-    question_one = input("How many seeds does the average strawberry have?\n").strip().capitalize()
-    if question_one == "200":
-        print("Correct!")
+        print("Strawberry Cult Leader: Good job! You passed all of our questions and now an official cult member!")
+        print("Another member of the Strawberry Cult walks up to you holding a strawberry cloke reverently")
+        accept = input("Do you accept?\n").strip().capitalize()
+        if accept == "Yes":
+            print("The member hands you the cloak you put it on, you gain 10 hearts")
+        else:
+            print("Strawberry Cult Leader: You don't accept the cloak. Well then, by the power of the strawberry gods we give you this!...")
+            time.sleep(1)
+            print("Pink lightning rains from the sky, all you see is the cult leader standing before you")
+            die()
+
     else:
-        print("You made the Cultists mad")
+        print("You get the heebie jeebies so you turn back and see a whole bunch of poeple in cloaks and their hats look like a strawberry tops. They point their strawberry wants at you and you go KABOOM!")
         die()
-    question_two = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
-    if question_two == "5-7":
-        print("Correct!")
-    else:
-        print("You made the Strawberry Cultists mad.")
-        die()
-    question_three = input("Which fruit is the first to ripen in the spring?\n").strip().capitalize()
-    if question_three == "Strawberries":
-        print("Correct!")
-    else:
-        print("You made the Strawberry Cultists mad.")
-        die()
-    question_four = input("How many pounds of frest strawberries do Americans eat?\n")
-    if question_four == "3.4":
-        print("Correct!")
-    else:
-        print("You made the Strawberry Cultists mad.")
-        die()
-    question_five = input("One acre of land can grow how many strawberries?\n").strip().capitalize()
-    if question_five == "50,000":
-        print("Correct!")
-    else:
-        print("You made the Strawberry Cultists mad.")
-        die()
-    question_six = input("True or False: Ancient Romans used strawberries to treat everything from depression to fever and sore throats\n").strip().capitalize()
-    if question_six == "True":
-        print("Correct!")
-    else:
-        print("You made the Strawberry Cultists mad.")
-        die()
-    question_seven = input("True or False: Every strawberry is hand-picked about every three days\n").strip().capitalize()
-    if question_seven == "True":
-     print("Correct!")
-    else:
-    print("You made the Strawberry Cultists mad.")
-        die()
-    question_eight = input("What temperature is perfect for strawberries?\n").strip().capitalize()
-    if question_eight == "55-78":
-        print("Correct!")
-    else: 
-        print("You made the Strawberry Cultists mad.")
-        die()
-print("Strawberry Cult Leader: Good job! You passed all of our questions and now an official cult member!")
-print("Another member of the Strawberry Cult walks up to you holding a strawberry cloke reverently")
-accept = input("Do you accept?\n").strip().capitalize()
-if accept == "Yes":
-    print("The member hands you the cloak you put it on, you gain 10 hearts")
 else:
-    print("Strawberry Cult Leader: You don't accept the cloak. Well then, by the power of the strawberry gods we give you this!...")
-    time.sleep(1)
-    print("Pink lightning rains from the sky, all you see is the cult leader standing before you")
-    die()
+    print("You go to the right and continue walking down the path")
+
 
 
 # DD Monster encounters
-
 goblin = [ # Base goblin
 "/|___|\\",
 "|o\\ /o|",
@@ -356,23 +367,33 @@ def boss_encounter(): # We are gonna make a function so we can call a boss fight
     return reward
     
 # Journey peice AE Crossroad
-
 print("Walking along the path you hear a noise from behind, there are two options climb a tree or start walking faster along the path")
 choice = input("What do you do? Climb or Walk?\n").strip().capitalize()
 if choice == "Climb":
     print("You begin to climb the tree, reaching the top you see a eagle's nest, would you like to climb higher or go back down?")
     tree_choice = input("Will you choose to go higher or go down?").strip().capitalize()
-if tree_choice == "Gohigher":
-    print("You reach the top of the tree, the view is beautiful, a forest of trees and a setting sun. As your admiring the scene a gigantic eagle comes and grabs you by the shoulders and carries you off. You scream.")
-    die()
+    if tree_choice == "Gohigher":
+        print("You reach the top of the tree, the view is beautiful, a forest of trees and a setting sun. As your admiring the scene a gigantic eagle comes and grabs you by the shoulders and carries you off. You scream.")
+        die()
 else:
     print("You climb back down the tree when you land safely on the path as something tackles you from behind") # encounter
     goblin_encounter
-else:
+
+if choice == "Walk":
     print("You begin to walk faster until you start to run, something tackles you") # encounter
     goblin_encounter
 
+print("A giant mountain looms above you, as you begin to climb you start to feel a magical presence")
+time.sleep(1)
 
+print(f"After a long journey and tiring hike you make it to a large cave, inside you see the {wizitem} sitting on the ground")
+enter = input("Do you want to enter?\n").strip().capitalize()
+if enter == "Yes":
+    print("You walk forward into the cave when something jumps out")
+    boss_encounter
+else:
+    print("Well too bad because something jumps out at you")
+    boss_encounter
 
 if boss_encounter() == "cool":
     print("You look at the item, exilerated yet exhausted. You know it is time to go home.")
@@ -397,3 +418,20 @@ if boss_encounter() == "cool":
     time.sleep(2)
     print("The end!")
 
+def win(): #Dan made this
+    won = [
+    "|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|             You win!              |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|"
+    ]
+win()
