@@ -94,9 +94,14 @@ if dead_end == "Walk":
     print("You walk along the stream until you see a cool crystal. Do you pick up the crystal or leave it alone")
 
     cool = input("Do you pick up the crystal?\n")
+elif dead_end == "Inventory":
+    inventory()
 
 if cool == "Pickup":
     print("You pick up the crystal and nothing happens")
+    inv.append("Crystal")
+elif cool == "Inventory":
+    inventory()
 else:
      print("You leave the crystal alone and walk away.")
 
@@ -104,6 +109,9 @@ crystal = input("Do you want to put it down or keep it?\n").strip().capitalize()
 
 if crystal == "Putitdown":
     print("You put down the crystal back on the ground and continue walking.")
+    inv.remove("Crystal")
+elif crystal == "Inventory":
+    inventory()
 else:
     print("You put the crystal in your satchel for safe keeping, you continue walking.")
     
@@ -111,12 +119,12 @@ resume = input("Do you want to walk towards the forest or turn back?\n").strip()
 
 if resume == "Walk":
 	print("You continue walking towards the forest")
+    time.sleep(1)
+    print("You come up on a crossroad. Left smells vaguely like strawberries and right looks perfectly normal.")
+
+
 else:
-	die()
-
-strawberry_hat_art = [ #Dan made this
-
-]
+    die()
 
 # DD Monster encounters
 
@@ -133,21 +141,6 @@ goblin_hurt = [ # Hurt goblin
 goblin_dead = [ # Dead goblin
 "/|___|\\",
 "|/x x\\|",
-"\\__o__/"
-]
-bandit = [ # Base bandit
-"/*****\\",
-"|o\\`/o|",
-"\\__w__/"
-]
-bandit_hurt = [ # Hurt bandit
-"/*****\\",
-"|>\\`/o|",
-"\\__w__/"
-]
-bandit_dead = [ # Dead bandit
-"/*****\\",
-"|/x`x\\|",
 "\\__o__/"
 ]
 boss = [ # Base boss
@@ -200,47 +193,6 @@ def weapon_use(): # We are gonna use a weapon A LOT, so we can do this to make i
         time.sleep(1)
         return damage
     time.sleep(2)
-
-def bandit_encounter(): # We are gonna make a function so we can call a bandit fight simply anytime #Dan made this
-    def bandit_turn():
-        time.sleep(2)
-        print("The bandit will attack now.")
-        time.sleep(2)
-        bandit_damage = random.randint(1,6)+2 # Die roll
-        print(f"The bandit dashes at you and swings their scimitar horizontally, dealing {bandit_damage} damage.")
-        return bandit_damage
-    def player_turn():
-        time.sleep(3)
-        print("It is your turn now.")
-        time.sleep(1)
-        damage = weapon_use()
-        for item in bandit_hurt:
-            print(item)
-        return damage
-    time.sleep(2)
-    print("Oh no! A bandit has appeared and is ready to rob you!")
-    time.sleep(1)
-    for item in bandit:
-        print(item)
-        player_hp = 30
-        bandit_hp = 10
-    while True:
-        bandit_damage = bandit_turn()
-        damage = player_turn()
-        if bandit_hp <= damage:
-            time.sleep(1)
-            print("Congratulations, the bandit is slain.")
-            time.sleep(1)
-            for item in bandit_dead:
-                print(item)
-            break
-        elif player_hp <= bandit_damage:
-            die()
-            break
-        elif bandit_hp > damage:
-            bandit_hp -= damage
-        elif player_hp > bandit_damage:
-            player_hp -= bandit_damage
 
 def goblin_encounter(): # We are gonna make a function so we can call a goblin fight simply anytime #Dan made this
     def goblin_turn():
@@ -334,16 +286,15 @@ print("Walking along the path you hear a noise from behind, there are two option
 choice = input("What do you do? Climb or Walk?\n").strip().capitalize()
 if choice == "Climb":
     print("You begin to climb the tree, reaching the top you see a eagle's nest, would you like to climb higher or go back down?")
+    tree_choice = input("Will you choose to go higher or go down?").strip().capitalize()
+    if tree_choice == "Gohigher":
+        print("You reach the top of the tree, the view is beautiful, a forest of trees and a setting sun. As your admiring the scene a gigantic eagle comes and grabs you by the shoulders and carries you off. You scream.")
+        die()
+    else:
+        print("You climb back down the tree when you land safely on the path as something tackles you from behind") # encounter
+        goblin_encounter
 else:
     print("You begin to walk faster until you start to run, something tackles you") # encounter
-    goblin_encounter
-
-tree_choice = input("Will you choose to go higher or go down?").strip().capitalize()
-if tree_choice == "Gohigher":
-    print("You reach the top of the tree, the view is beautiful, a forest of trees and a setting sun. As your admiring the scene a gigantic eaglle comes and grabs you by the shoulders and carries you off. You scream.")
-    die()
-else:
-    print("You climb back down the tree when you land safely on the path as something tackles your from behind") # encounter
     goblin_encounter
 
 if boss_encounter() == "cool":
@@ -369,30 +320,7 @@ if boss_encounter() == "cool":
     time.sleep(2)
     print("The end!")
 
-# EW Strawberry Cult Encounter
-print("You arrive at a crossroads. The left path smells vaguely like strawberries for some reason, the right looks normal")
-lefty = input("Where should you go? Left or Right?").strip().lower()
-if lefty == "left":
-    print("You go until you see a cave, which you go in obviously, because caves are cool.")
-    time.sleep(2)
-    print("It smells overwhelmingly like strawberries in there, which is strange you think.")
-    time.sleep(2)
-    chest = input("You see a chest, do you open it or close it?").strip().lower()
-    time.sleep(2)
-    if chest == "open it":
-        print("You open it and see the most incredible looking strawberries you have ever seen.")
-        time.sleep(2)
-        print("WHO ARE WHO????")
-        time.sleep(1)
-        print("You spin around and choke on the way overwhelming strawberries. There are hundred of people who have suddenly appeared. They are wearing cloaks that are bloodred with black seeds, and their hoods look like strawberry tops.")
-        time.sleep(3)
-        print("They look quite threatening. You pee your pants a little.")
-    else:
-        print("You get the heebie jeebies so you turn and see many people. They aim a strawberry wand at you and you go KABLAM.")
-        die()
-    
-else:
-    print("You go right and everything looks normal, you continue walking...")
+
 
 # AE Questions
 print("Strawberry Cult Leader: In order to enter our cult you must pass this trial,")
@@ -400,51 +328,58 @@ question_one = input("How many seeds does the average strawberry have?\n").strip
 if question_one == "200":
     print("Correct!")
 else:
+    print("You made the Cultists mad")
     die()
-    print("You made the Strawberry Cultists mad.")
 question_two = input("How many petals does the average strawberry flower have?\n").strip().capitalize()
 if question_two == "5-7":
     print("Correct!")
 else:
-    die()
     print("You made the Strawberry Cultists mad.")
+    die()
 question_three = input("Which fruit is the first to ripen in the spring?\n").strip().capitalize()
 if question_three == "Strawberries":
     print("Correct!")
 else:
-    die()
     print("You made the Strawberry Cultists mad.")
+    die()
 question_four = input("How many pounds of frest strawberries do Americans eat?\n")
 if question_four == "3.4":
     print("Correct!")
 else:
-    die()
     print("You made the Strawberry Cultists mad.")
+    die()
 question_five = input("One acre of land can grow how many strawberries?\n").strip().capitalize()
 if question_five == "50,000":
     print("Correct!")
 else:
-    die()
     print("You made the Strawberry Cultists mad.")
+    die()
 question_six = input("True or False: Ancient Romans used strawberries to treat everything from depression to fever and sore throats\n").strip().capitalize()
 if question_six == "True":
     print("Correct!")
 else:
-    die()
     print("You made the Strawberry Cultists mad.")
+    die()
 question_seven = input("True or False: Every strawberry is hand-picked about every three days\n").strip().capitalize()
 if question_seven == "True":
     print("Correct!")
 else:
-    die()
     print("You made the Strawberry Cultists mad.")
+    die()
 question_eight = input("What temperature is perfect for strawberries?\n").strip().capitalize()
 if question_eight == "55-78":
     print("Correct!")
-else:
-    die()
+else: 
     print("You made the Strawberry Cultists mad.")
+    die()
 
 print("Strawberry Cult Leader: Good job! You passed all of our questions and now an official cult member!")
 print("Another member of the Strawberry Cult walks up to you holding a strawberry cloke reverently")
-accept = input("Do you accept\n")
+accept = input("Do you accept?\n").strip().capitalize()
+if accept == "Yes":
+    print("The member hands you the cloak you put it on, you gain 10 hearts")
+else:
+    print("Strawberry Cult Leader: You don't accept the cloak, well than by the power of the strawberry gods we give you this!...")
+    time.sleep(1)
+    print("Pink lightening rains from the sky, all you see is the cult leader standing before you")
+    die()
